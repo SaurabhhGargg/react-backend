@@ -1,0 +1,3 @@
+module.exports = {
+  mongoUrl: 'mongodb+srv://dbprateek:K7iO1qHFs3i5rMn6@cluster1.cevzh.mongodb.net/Productdb?retryWrites=true&w=majority',
+  privateKey:"GOT"}
