@@ -1,12 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const config = require('./config');
 const PORT = 8081;
 const routes = require('./routes');
 const cors=require('cors');
 const app = express();
-// const config = require('./config');
+const dotenv = require('dotenv');
+dotenv.config();
+
 app.use(cors());
 //Swagger
 const swaggerUI = require('swagger-ui-express')
@@ -39,8 +40,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
  routes(app);
- mongoose.connect(config.mongoUrl, {useNewUrlParser: true});
-
-app.listen(PORT, () => {
+ mongoose.connect(process.env.db_connect, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+ })
+app.get('/',(req,res)=>{
+  res.send('Welcome');
+})
+app.listen(process.env.PORT || PORT, () => 
+{
   console.log('Server listening on port: ' + PORT);
 });
