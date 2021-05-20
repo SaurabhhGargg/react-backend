@@ -33,7 +33,7 @@ let message;
 try {
   const prod = await Product.deleteOne({ Id: id });
   status = 200;
-  message = 'deleted data';
+  message = 'erased data';
 
 } catch(err) {
   console.log('Some error occured', err);
