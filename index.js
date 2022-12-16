@@ -10,8 +10,8 @@ dotenv.config();
 
 app.use(cors());
 //Swagger
-const swaggerUI = require('swagger-ui-express')
-const swaggerJSDoc = require('swagger-jsdoc')
+// const swaggerUI = require('swagger-ui-express')
+// const swaggerJSDoc = require('swagger-jsdoc')
 
 //Swagger-------------------------
 const options = {
@@ -31,8 +31,8 @@ const options = {
   apis: ["./api-docs/api.js"],
 };
 
-const specs = swaggerJSDoc(options)
-app.use("/api/docs", swaggerUI.serve, swaggerUI.setup(specs))
+// const specs = swaggerJSDoc(options)
+// app.use("/api/docs", swaggerUI.serve, swaggerUI.setup(specs))
 //-------------------------------
 
 
